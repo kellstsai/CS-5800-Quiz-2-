@@ -1,0 +1,164 @@
+@startuml secondDiagram
+
+object Document
+object testDocument {
+    content = "HelloWorldCS5800"
+}
+
+note right of testDocument
+    try {
+        testDocument.saveToFile("test.txt");
+        System.out.println("Saved Document as test.txt");
+    } catch(IOException e) {
+        System.out.println("Failed on Save");
+    }
+end note
+
+Class Driver {
+    main()
+}
+
+object Character {
+    - character: char
+    - font: String
+    - color: String
+    - size: int
+}
+
+Document --> testDocument
+Driver --> Document
+
+testDocument --> Character
+
+object firstCharacter { 
+    Character : character = "H"
+    Character : font = "Arial"
+    Character : color = "Black"
+    Character : size = 16
+}
+
+object secondCharacter { 
+    Character : character = "e"
+    Character : font = "Arial"
+    Character : color = "Black"
+    Character : size = 14
+}
+
+object thirdCharacter { 
+    Character : character = "l"
+    Character : font = "Arial"
+    Character : color = "Black"
+    Character : size = 14
+}
+
+object fourthCharacter { 
+    Character : character = "l"
+    Character : font = "Arial"
+    Character : color = "Black"
+    Character : size = 14
+}
+
+object fifthCharacter { 
+    Character : character = "o"
+    Character : font = "Arial"
+    Character : color = "Black"
+    Character : size = 14
+}
+
+object sixthCharacter { 
+    Character : character = "W"
+    Character : font = "Arial"
+    Character : color = "Black"
+    Character : size = 14
+}
+
+object seventhCharacter { 
+    Character : character = "o"
+    Character : font = "Arial"
+    Character : color = "Black"
+    Character : size = 14
+}
+
+object eighthCharacter { 
+    Character : character = "r"
+    Character : font = "Arial"
+    Character : color = "Black"
+    Character : size = 14
+}
+
+object ninthCharacter { 
+    Character : character = "l"
+    Character : font = "Arial"
+    Character : color = "Black"
+    Character : size = 14
+}
+
+object tenthCharacter { 
+    Character : character = "d"
+    Character : font = "Arial"
+    Character : color = "Black"
+    Character : size = 14
+}
+
+object eleventhCharacter { 
+    Character : character = "C"
+    Character : font = "Verdana"
+    Character : color = "Blue"
+    Character : size = 18
+}
+
+object twelvethCharacter { 
+    Character : character = "S"
+    Character : font = "Verdana"
+    Character : color = "Blue"
+    Character : size = 18
+}
+
+object thirdteenthCharacter { 
+    Character : character = "5"
+    Character : font = "Verdana"
+    Character : color = "Red"
+    Character : size = 12
+}
+
+object fourteenthCharacter { 
+    Character : character = "8"
+    Character : font = "Verdana"
+    Character : color = "Red"
+    Character : size = 12
+}
+
+object fifteenthCharacter { 
+    Character : character = "0"
+    Character : font = "Verdana"
+    Character : color = "Red"
+    Character : size = 12
+}
+
+object sixteenthCharacter { 
+    Character : character = "0"
+    Character : font = "Verdana"
+    Character : color = "Red"
+    Character : size = 12
+}
+
+Drive --> Document
+Document --> testDocument
+testDocument --> firstCharacter
+testDocument --> secondCharacter
+testDocument --> thirdCharacter
+testDocument --> fourthCharacter
+testDocument --> fifthCharacter
+testDocument --> sixthCharacter
+testDocument --> seventhCharacter
+testDocument --> eighthCharacter
+testDocument --> ninthCharacter
+testDocument --> tenthCharacter
+testDocument --> eleventhCharacter
+testDocument --> twelvethCharacter
+testDocument --> thirdteenthCharacter
+testDocument --> fourteenthCharacter
+testDocument --> fifteenthCharacter
+testDocument --> sixteenthCharacter
+
+@enduml

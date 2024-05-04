@@ -1,0 +1,43 @@
+@startuml firstDiagram 
+
+class Character {
+    - character : char 
+    - characterProperty : CharacterProperties
+    + Character(character : char) 
+    + setCharacter(character : char) 
+    + setCharacterProperty(characterProperty : CharacterProperties)
+    + getCharacter() : char
+    + getFont() : String
+    + getColor() : String
+    + getSize() : int 
+}
+
+class CharacterProperties {
+    - font : String 
+    - color : String
+    - size : int
+    + CharacterProperties(font : String, color : String, size : int)
+    + getFont() : String
+    + getColor() : String
+    + getSize() : int 
+}
+
+class CharacterPropertiesFactory {
+    - flyweights : Map<String, CharacterProperties>
+    + setAndRetrieveFlyweightCharacterProperties(font : String, color : String, size : int) : CharacterProperties
+    + sizeOfMap() : int 
+}
+
+class Document {
+    - characters : List<Character>
+    - propertiesFactory : CharacterPropertiesFactory
+    + addCharacter(c : char, font : String, color : String, size : int) : void
+    + editCharacterProperties(index : int, font : String, color : String, size : int) : void
+    + saveToFile(fileName : String) : void
+    + loadFromFile(fileName : String) : void
+}
+
+Document "1" o-- "1" Character
+Document "1" o-- "1" CharacterPropertiesFactory
+Character o-- CharacterPropertiesFactory
+Character "1" --> "1" CharacterProperties

@@ -1,0 +1,41 @@
+@startuml thirdDiagram
+
+Class Driver {
+    main() 
+}
+
+object Document 
+
+object CharacterModifyPropertyH {
+    index = 0
+    font = "Calibri"
+    color = "Blue"
+    size = 99 
+}
+
+object CharacterModifyPropertyW {
+    index = 5
+    font = "Calibri"
+    color = "Blue"
+    size = 99 
+}
+
+object readDocumentVerify
+
+note right of readDocumentVerify
+    try {
+        readDocumentVerify.loadFromFile("test.txt"); 
+        System.out.println("Loaded Document from test.txt"); 
+    }
+    catch (IOException e) {
+        System.out.println("Failed on Load");
+    }
+
+end note 
+
+Document --> readDocumentVerify
+readDocumentVerify --> CharacterModifyPropertyH : editCharacterProperties
+readDocumentVerify --> CharacterModifyPropertyW
+Driver --> Document
+
+
